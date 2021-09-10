@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title" *ngIf="!employeeObj?.id">Add Employee</h4>
+  <h4 class="modal-title" *ngIf="employeeObj?.id">Update Employee</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <!-- <p>Hello, {{name}}!</p> -->
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name:</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name"
+        [(ngModel)]="employeeObj.employee_name" name="empName">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword2">Age:</label>
+      <input type="text" class="form-control" id="exampleInputPassword2" placeholder="age"
+      [(ngModel)]="employeeObj.employee_age" name="age">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword3">Salary:</label>
+      <input type="text" class="form-control" id="exampleInputPassword3" placeholder="salary"
+      [(ngModel)]="employeeObj.employee_salary" name="salary">
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-success mr-2" (click)="passData()">Submit</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
